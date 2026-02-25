@@ -2,11 +2,20 @@ import express from "express";
 import { config } from "dotenv";
 import { connectDB, disconnectDB } from "./config/db.js";
 
+// Import Routes
+import movieRoutes from "./routes/movieRoutes.js"
+import authRoutes from "./routes/authRoutes.js"
+
 const app = express();
 const PORT = process.env.PORT || 9999;
 
 config();
 connectDB();
+
+// API Routes
+app.use("/movies", movieRoutes);
+app.use("/auth", authRoutes);
+
 
 const server = app.listen(PORT, () => {
   console.log(`Server runnig on port: ${PORT}`);
