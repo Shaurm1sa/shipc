@@ -2,7 +2,7 @@
   "name": "shipc-backend-course",
   "version": "1.0.0",
   "description": "",
-  "main": "ser/server.ts",
+  "main": "src/server.ts",
   "type": "module",
   "scripts": {
     "dev": "tsx watch src/server.ts"
