@@ -1,5 +1,3 @@
-# Use postgres/example user/password credentials
-
 services:
   db:
     container_name: postgres
@@ -14,8 +12,8 @@ services:
     #    tmpfs:
     #      size: 134217728 # 128*2^20 bytes = 128Mb
     environment:
-      POSTGRES_PASSWORD: shipc666
-      POSTGRES_USER: shipc
+      POSTGRES_PASSWORD: "shipc666"
+      POSTGRES_USER: "shipc"
       POSTGRES_DB: db
     ports:
       - 5432:5432
