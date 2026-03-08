@@ -5,7 +5,7 @@
 // Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
 
 generator client {
-  provider = "prisma-client"
+  provider = "prisma-client-js"
 }
 
 datasource db {
@@ -13,10 +13,10 @@ datasource db {
 }
 
 model User {
-  id       String   @id @default(uuid())
-  name     String
-  email    String   @unique
-  password String
+  id        String   @id @default(uuid())
+  name      String
+  email     String   @unique
+  password  String
   createdAt DateTime @default(now())
 
   // Realtion | Вілносини
@@ -55,9 +55,11 @@ model WatchlistItem {
   rating    Int?
   notes     String?
   createdAt DateTime        @default(now())
-  updatedAt  DateTime        @default(now())
+  updatedAt DateTime        @default(now())
 
   // Relation | Відгосини
   user  User  @relation(fields: [userId], references: [id], onDelete: Cascade)
   movie Movie @relation(fields: [movieId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, movieId])
 }
